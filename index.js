@@ -8,9 +8,9 @@ app.use(express.static("public"));
 
 app.get("/", async (req, res) => {
     try {
-        const response = await axios.get("https://programming-quotesapi.vercel.app/api/random");
+        const result = await axios.get("https://programming-quotesapi.vercel.app/api/random");
+        console.log(result.data);
         res.render("index.ejs", { quote: result.data.quote, author: result.data.author });
-        console.log(quote)
     } catch (error) {
         res.status(500);
     };
